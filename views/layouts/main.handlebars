@@ -7,9 +7,13 @@
   <title>Budget Blueprint</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <style> body {
-    background: linear-gradient(to right, #56ccf2, #2f80ed);
-    } </style>
+  <style>
+    body {
+      background-image: url();
+      background-color: linear-gradient(to right, #56ccf2, #2f80ed);
+      background-size: cover;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,10 +24,10 @@
 
           <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-              <a class="navbar-item is-active">
+              <a href="/" class="navbar-item is-active">
                 Home
               </a>
-              <a class="navbar-item">
+              <a href="/login" class="navbar-item">
                 Profile
               </a>
             </div>
@@ -48,12 +52,12 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         {{!-- <img src="https://cdn.emk.dev/templates/bulma-logo-light.png" width="150" height="40"> --}}
-              <h1 class="has-text-centered is-size-1">
-        <span role="img" aria-label="money">💸</span>
-        <a href="/" class="" width="150" height="40">Budget Blueprint!</a>
-      </h1>
-              <h2 class="subtitle">
-Let's find your new home city!
+        <h1 class="has-text-centered is-size-1">
+          <span role="img" aria-label="money">💸</span>
+          <a href="/" class="" width="150" height="40">Budget Blueprint!</a>
+        </h1>
+        <h2 class="subtitle">
+          Let's find your new home city!
         </h2>
       </div>
     </div>
