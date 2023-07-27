@@ -30,6 +30,11 @@
               <a href="/login" class="navbar-item">
                 Profile
               </a>
+              {{#if logged_in}}
+                <button id="logout">
+                  Logout
+                </button>
+              {{/if}}
             </div>
 
             <div class="navbar-end">
