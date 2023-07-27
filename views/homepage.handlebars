@@ -1,11 +1,12 @@
-
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Budget Blueprint</title>
+  <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/ghost-blog.css">
 </head>
-<div class="flex-column justify-space-around">
-  <header class="display-flex justify-space-between align-center p-2">
-   
-
 
 <div class="container">
   <div class="columns is-centered">
@@ -15,17 +16,44 @@
         <input id="searchinput" class="input is-medium" type="text" placeholder="San Francisco, CA">
         <label class="label mt-4">Where would you like to be Your Future Home City?</label>
         <input id="futureinput" class="input is-medium" type="text" placeholder="Atlantic City, NJ">
+      </div>
+      <div>
         <button class="button is-primary" id="searchbtn">Search</button>
       </div>
     </div>
   </div>
 
-  <div class="columns is-centered">
-    <div class="column is-half">
-      <h2 id="results" class="level-item subtitle is-4 has-text-weight-semibold">Results:</h2>
-      <div id="result"></div>
-    </div>
-  </div>
-</div>
+  <script src="./js/search.js"></script>
 
-<script src="./js/search.js"></script>
+  <section class="blog-posts">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-10 is-offset-1">
+          <div class="columns featured-post is-multiline">
+            <div class="column is-12 post">
+              <article class="columns featured">
+                <div class="column is-7 post-img ">
+                  <img src="https://i.pinimg.com/originals/44/d4/56/44d456d6ee2938a18f1572f3f18acaa1.jpg" alt="">
+                </div>
+                <div class="column is-5 featured-content va">
+                  <div>
+                    <h1 class="title post-title" id="results" class="level-item subtitle is-4 has-text-weight-semibold">
+                      Results:</h1>
+                    <div class="container" id="result">
+                    </div>
+                  </div>
+
+                </div>
+              </article>
+            </div>
+          </div>
+          <hr>
+          <div class="columns is-multiline">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  </html>

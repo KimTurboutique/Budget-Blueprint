@@ -22,6 +22,11 @@ const SearchHandler = async (event) => {
 
       const button = document.createElement('button');
       button.textContent = 'Login or Create an Account to save your results!';
+      button.style.backgroundColor = 'green';
+      button.style.color = 'white';
+      button.style.padding = '10px 20px';
+      button.style.border = 'none';
+      button.style.cursor = 'pointer';
 
       button.addEventListener('click', () => {
         window.location.href = 'http://localhost:3001/login'
