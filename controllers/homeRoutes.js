@@ -9,9 +9,15 @@ router.get("/", (req,res)=> {
   })
 })
 
-router.get("/profile", (req,res)=> {
+router.get("/profile", withAuth, async (req,res)=> {
+  const userData = await User.findByPk(req.session.user_id, {
+    attributes: {exclude: ['password']},
+    include: [{ model: Location}]
+  })
+
+  const user = userData.get({plain: true})
   res.render("profile", {
-    username: "hard coded user name",
+    ...user,
     logged_in: req.session.logged_in
   })
 })

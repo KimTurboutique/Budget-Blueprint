@@ -17,8 +17,8 @@ const SearchHandler = async (event) => {
       const result = calculateDifference(data.homeCity, data.destinationCity);
       console.log(result);
       const resultDiv = document.querySelector('#result');
-      resultDiv.innerHTML = `Based on your search, if you would like to move from your home city to your future home city you would need to adjust your income by ${result}% in order to live at your same level of comfort.`;
-      let HTML = ``
+      const resultText = `Based on your search, if you would like to move from your home city to your future home city you would need to adjust your income by ${result}% in order to live at your same level of comfort.`
+      resultDiv.innerHTML = resultText;
 
       const button = document.createElement('button');
       button.textContent = 'Login or Create an Account to save your results!';
@@ -28,8 +28,17 @@ const SearchHandler = async (event) => {
       button.style.border = 'none';
       button.style.cursor = 'pointer';
 
-      button.addEventListener('click', () => {
-        window.location.href = 'http://localhost:3001/login'
+      button.addEventListener('click', async () => {
+        const locationResponse = await fetch('/api/location', {
+          method: 'POST',
+          body: JSON.stringify({ location_result: resultText }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        if(locationResponse.ok){
+          document.location.replace('/profile')
+        }
       });
 
       resultDiv.appendChild(button);
