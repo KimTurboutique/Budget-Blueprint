@@ -29,20 +29,19 @@ Once you arrive at (link), the Budget Blueprint App enables efficient comparison
 
 ## Credits
 
-Collaborators:
- - https://github.com/Jdelg140
+GitHub:
+
  - https://github.com/KimTurboutique
- - https://github.com/mika111420
- - https://github.com/Tehila03
+ - Tutor: Megan Meyers for assisting with completing this project.
+
 
 
 
 ### Web APIs
-- Our own API
+- Custom API
 
 ### CSS Framework
  - Bulma.io
-
 
 ## Features
 
