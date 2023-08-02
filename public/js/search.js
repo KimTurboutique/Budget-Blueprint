@@ -1,3 +1,6 @@
+const loggedIn = document.getElementById("loggedIn").value;
+console.log(loggedIn)
+
 const SearchHandler = async (event) => {
 
   const city1 = document.querySelector('#searchinput').value.trim();
@@ -17,7 +20,7 @@ const SearchHandler = async (event) => {
       const result = calculateDifference(data.homeCity, data.destinationCity);
       console.log(result);
       const resultDiv = document.querySelector('#result');
-      const resultText = `Based on your search, if you would like to move from your home city to your future home city you would need to adjust your income by ${result}% in order to live at your same level of comfort.`
+      const resultText = `Based on your search, if you would like to move from ${data.homeCity.city} to ${data.destinationCity.city} you would need to adjust your income by ${result}% in order to live at your same level of comfort.`
       resultDiv.innerHTML = resultText;
 
       const button = document.createElement('button');
@@ -27,8 +30,20 @@ const SearchHandler = async (event) => {
       button.style.padding = '10px 20px';
       button.style.border = 'none';
       button.style.cursor = 'pointer';
+      button.addEventListener('click', () =>{
+        window.location.href = '/login'
+      })
+  
 
-      button.addEventListener('click', async () => {
+      const saveButton = document.createElement('button');
+      saveButton.textContent = 'Save your results!';
+      saveButton.style.backgroundColor = 'green';
+      saveButton.style.color = 'white';
+      saveButton.style.padding = '10px 20px';
+      saveButton.style.border = 'none';
+      saveButton.style.cursor = 'pointer';
+
+      saveButton.addEventListener('click', async () => {
         const locationResponse = await fetch('/api/location', {
           method: 'POST',
           body: JSON.stringify({ location_result: resultText }),
@@ -40,10 +55,11 @@ const SearchHandler = async (event) => {
           document.location.replace('/profile')
         }
       });
+      if (!loggedIn){
+        resultDiv.appendChild(button);    
+      }
+      else {resultDiv.appendChild(saveButton)}
 
-      resultDiv.appendChild(button);
-
-      // attach response to handlebars**
     } else {
       alert('No search results.');
     }

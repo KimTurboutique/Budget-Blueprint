@@ -3,22 +3,20 @@ const { Project, User, Location } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get("/", (req,res)=> {
+router.get("/", (req, res) => {
   res.render("homepage", {
     logged_in: req.session.logged_in
   })
 })
 
-router.get("/profile", withAuth, async (req,res)=> {
-  const userData = await User.findByPk(req.session.user_id, {
-    attributes: {exclude: ['password']},
-    include: [{ model: Location}]
+router.get("/profile", withAuth, async (req, res) => {
+  const locationData = await Location.findAll({
+    where: { user_id: req.session.user_id }
   })
-
-  const user = userData.get({plain: true})
+  const location = locationData.map(loc => loc.get({ plain: true }))
   res.render("profile", {
-    ...user,
-    logged_in: req.session.logged_in
+    location,
+    logged_in: req.session.logged_in,username: req.session.username
   })
 })
 

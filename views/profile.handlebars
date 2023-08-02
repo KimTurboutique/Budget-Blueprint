@@ -12,15 +12,8 @@
           <div class="content">
             <h2> Income: </h2>
             <h2> City: </h2>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
           </div>
         </div>
-        <footer class="card-footer">
-          <a href="#" class="card-footer-item">Save</a>
-          <a href="#" class="card-footer-item">Edit</a>
-          <a href="#" class="card-footer-item">Delete</a>
-        </footer>
       </div>
     </div>
 
@@ -29,12 +22,11 @@
         <div class="column">
           <div class="panel">
             <p class="panel-heading">
-              Current Projects
+              Saved Searches
             </p>
             <div class="panel-block">
               {{#each location as |location|}}
                 <p>{{location.location_result}}</p>
-              <!-- Current Projects content goes here -->
               {{/each}}
             </div>
           </div>
@@ -51,3 +43,5 @@
     </div>
   </div>
 </div>
+
+<script src="/js/profile.js"></script>
